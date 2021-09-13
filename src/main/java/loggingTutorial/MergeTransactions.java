@@ -29,10 +29,10 @@ public class MergeTransactions {
 		List<Purchase> transactions = new ArrayList<Purchase>();
 		
 		// read data from 4 files
-		readData("src/resources/transactions1.csv",transactions);
-		readData("src/resources/transactions2.csv",transactions);
-		readData("src/resources/transactions3.csv",transactions);
-		readData("src/resources/transactions4.csv",transactions);
+		readData("src/resources/transactions1.csv", transactions);
+		readData("src/resources/transactions2.csv", transactions);
+		readData("src/resources/transactions3.csv", transactions);
+		readData("src/resources/transactions4.csv", transactions);
 		
 		// print some info for the user
 		System.out.println("" + transactions.size() + " transactions imported");
