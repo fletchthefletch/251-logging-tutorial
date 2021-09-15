@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import org.apache.log4j.*;
 
 /**
  * The purpose of this class is to read and merge financial transactions, and print a summary:
@@ -25,7 +26,41 @@ public class MergeTransactions {
 	private static DateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
 	private static NumberFormat CURRENCY_FORMAT = NumberFormat.getCurrencyInstance(Locale.getDefault());
 	
+	// Loggers
+	static Logger filelogger = Logger.getLogger("FILE");
+	static Logger transactionlogger = Logger.getLogger("TRANSACTIONS");
+
+		
 	public static void main(String[] args) {
+	
+		BasicConfigurator.configure();
+		// Set file logger level to info - info is the lowest level priority required by this logger
+		filelogger.setLevel(Level.INFO);
+		// Set file logger level to debug - debug is the lowest level priority required by this logger
+		transactionlogger.setLevel(Level.DEBUG);
+		
+		try {
+			// File logger appenders (File & Console)
+			filelogger.addAppender(
+				new org.apache.log4j.FileAppender(
+					new org.apache.log4j.SimpleLayout(), "logs.txt"
+				)
+			);
+			filelogger.addAppender(
+					new org.apache.log4j.ConsoleAppender(
+						new org.apache.log4j.SimpleLayout())
+				);
+			
+			// Transaction logger appender (Console Only)
+			transactionlogger.addAppender(
+					new org.apache.log4j.ConsoleAppender(
+							new org.apache.log4j.SimpleLayout())
+					);
+		} catch (IOException e) {
+			// Could not add appenders
+			filelogger.error("Could not add appenders");
+		}
+		
 		List<Purchase> transactions = new ArrayList<Purchase>();
 		
 		// read data from 4 files
@@ -35,10 +70,9 @@ public class MergeTransactions {
 		readData("src/resources/transactions4.csv", transactions);
 		
 		// print some info for the user
-		System.out.println("" + transactions.size() + " transactions imported");
-		System.out.println("total value: " + CURRENCY_FORMAT.format(computeTotalValue(transactions)));
-		System.out.println("max value: " + CURRENCY_FORMAT.format(computeMaxValue(transactions)));
-
+		transactionlogger.info("" + transactions.size() + " transactions imported");
+		transactionlogger.info("total value: " + CURRENCY_FORMAT.format(computeTotalValue(transactions)));
+		transactionlogger.info("max value: " + CURRENCY_FORMAT.format(computeMaxValue(transactions)));
 	}
 	
 	private static double computeTotalValue(List<Purchase> transactions) {
@@ -62,8 +96,10 @@ public class MergeTransactions {
 		
 		File file = new File(fileName);
 		String line = null;
+		
 		// print info for user
-		System.out.println("import data from " + fileName);
+		filelogger.info("import data from " + fileName);
+		
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
@@ -75,35 +111,33 @@ public class MergeTransactions {
 						DATE_FORMAT.parse(values[2])
 				);
 				transactions.add(purchase);
+				
 				// this is for debugging only
-				System.out.println("imported transaction " + purchase);
+				transactionlogger.debug("imported transaction " + purchase);
 			} 
 		}
 		catch (FileNotFoundException x) {
 			// print warning
-			x.printStackTrace();
-			System.err.println("file " + fileName + " does not exist - skip");
+			filelogger.warn("file " + fileName + " does not exist - skip");
 		}
 		catch (IOException x) {
 			// print error message and details
-			x.printStackTrace();
-			System.err.println("problem reading file " + fileName);
+			filelogger.error("problem reading file " + fileName);
 		}
 		// happens if date parsing fails
 		catch (ParseException x) { 
 			// print error message and details
-			x.printStackTrace();
-			System.err.println("cannot parse date from string - please check whether syntax is correct: " + line);	
+			filelogger.error("cannot parse date from string - please check whether syntax is correct: " + line);
 		}
 		// happens if double parsing fails
 		catch (NumberFormatException x) {
 			// print error message and details
-			System.err.println("cannot parse double from string - please check whether syntax is correct: " + line);	
+			filelogger.error("cannot parse double from string - please check whether syntax is correct: " + line);
 		}
 		catch (Exception x) {
 			// any other exception 
 			// print error message and details
-			System.err.println("exception reading data from file " + fileName + ", line: " + line);	
+			filelogger.error("exception reading data from file " + fileName + ", line: " + line);
 		}
 		finally {
 			try {
@@ -112,7 +146,7 @@ public class MergeTransactions {
 				}
 			} catch (IOException e) {
 				// print error message and details
-				System.err.println("cannot close reader used to access " + fileName);
+				filelogger.error("cannot close reader used to access " + fileName);
 			}
 		}
 	}

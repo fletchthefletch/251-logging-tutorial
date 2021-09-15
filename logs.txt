@@ -1,0 +1,66 @@
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
+INFO - import data from src/resources/transactions1.csv
+INFO - import data from src/resources/transactions2.csv
+INFO - import data from src/resources/transactions3.csv
+ERROR - cannot parse date from string - please check whether syntax is correct: Animates,4,13/5/2012
+INFO - import data from src/resources/transactions4.csv
+WARN - file src/resources/transactions4.csv does not exist - skip
